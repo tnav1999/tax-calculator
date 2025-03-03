@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "firstName": "John",
+        "lastName": "Doe",
+        "taxCode": "TAX1234",
+        "income": 15
+    },
+    {
+        "id": 2,
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "taxCode": "TAX5678",
+        "income": 32
+    },
+    {
+        "id": 3,
+        "firstName": "Alice",
+        "lastName": "Johnson",
+        "taxCode": "TAX91011",
+        "income": 52
+    }
+]
