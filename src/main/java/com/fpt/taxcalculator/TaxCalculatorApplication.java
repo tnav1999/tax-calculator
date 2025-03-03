@@ -4,11 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TaxcalculatorApplication {
+public class TaxCalculatorApplication {
 
 	public static void main(String[] args) {
 
-        SpringApplication.run(TaxcalculatorApplication.class, args);
+        SpringApplication.run(TaxCalculatorApplication.class, args);
 	}
 
 }

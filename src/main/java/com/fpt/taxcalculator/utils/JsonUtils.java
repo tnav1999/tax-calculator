@@ -1,4 +1,4 @@
-package com.fpt.taxcalculator.repository;
+package com.fpt.taxcalculator.utils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,11 +9,11 @@ import java.io.IOException;
 
 @Component
 public class JsonUtils {
-    public <Response> Response parseFromJson(String filePath, TypeReference<Response> typeReference) throws IOException {
+    public <Response> Response parseFromJson(String content, TypeReference<Response> typeReference) throws IOException {
         // Create an ObjectMapper instance
         ObjectMapper objectMapper = new ObjectMapper();
 
         // Read the JSON file and map it to a List of User objects
-        return objectMapper.readValue(new File(filePath), typeReference);
+        return objectMapper.readValue(content, typeReference);
     }
 }

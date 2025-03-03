@@ -1,6 +1,6 @@
 package com.fpt.taxcalculator.model;
 
-public class User {
+public class Person {
     private Long id;
 
     private String firstName;
