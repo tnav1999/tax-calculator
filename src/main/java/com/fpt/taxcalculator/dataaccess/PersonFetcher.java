@@ -39,7 +39,6 @@ public class PersonFetcher {
         String GITHUB_URL = "https://raw.githubusercontent.com/tnav1999/tax-calculator/refs/heads/main/datastore/users.json";
         String response = restTemplate.getForObject(GITHUB_URL, String.class);
 
-        TypeReference<List<Person>> typeRef = new TypeReference<>() {};
-        return jsonUtils.parseFromJson(response, typeRef);
+        return jsonUtils.parseFromJson(response);
     }
 }
