@@ -1,0 +1,10 @@
+databaseChangeLog:
+- changeSet:
+    id: 1741527256586-1
+    author: lttri (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: tax_code
+        constraintName: UC_PERSONTAX_CODE_COL
+        tableName: person
+
