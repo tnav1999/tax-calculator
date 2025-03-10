@@ -20,7 +20,7 @@ public class Person {
 	@Column(name = "last_name", nullable = false)
     private String lastName;
 
-	@Column(name = "tax_code", unique = true, nullable = false)
+	@Column(name = "tax_code", nullable = false, unique = true)
     private String taxCode;
 
 	@Column(name = "income", nullable = false)

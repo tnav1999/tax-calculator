@@ -10,8 +10,9 @@ import java.util.List;
 
 @Repository
 public interface PersonRepository extends JpaRepository<Person, Long> {
-	@Query(value = "SELECT pe FROM Person pe WHERE pe.id = :id")
-	Person getPersonById(@Param("id") Long id);
 
 	List<Person> findAllByOrderByIncome();
+
+	@Query("SELECT per FROM Person per WHERE per.lastName = :lastName")
+	Person findPersonByLastname(@Param("lastName") String lastName);
 }

@@ -1,6 +1,8 @@
 package com.fpt.taxcalculator.dataaccess;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fpt.taxcalculator.model.Person;
 import com.fpt.taxcalculator.utils.JsonUtils;
 import org.springframework.stereotype.Component;
@@ -12,33 +14,14 @@ import java.util.Optional;
 
 @Component
 public class PersonFetcher {
-    private final JsonUtils jsonUtils;
-    private final RestTemplate restTemplate;
+	public List<Person> getAllPersons() throws JsonProcessingException {
+		RestTemplate restTemplate = new RestTemplate();
+		String GITHUB_URL = "https://raw.githubusercontent.com/tnav1999/tax-calculator/refs/heads/main/datastore/users.json";
+		String response = restTemplate.getForObject(GITHUB_URL, String.class);
 
-    public PersonFetcher(JsonUtils jsonUtils) {
-        this.jsonUtils = jsonUtils;
-        this.restTemplate = new RestTemplate();
-    }
+		ObjectMapper objectMapper = new ObjectMapper();
+		TypeReference<List<Person>> typeReference = new TypeReference<>(){};
 
-    public List<Person> findAll() throws IOException {
-        return getAllUsers();
-    }
-
-    public Person findByUserId(Long userId) throws IOException {
-        List<Person> users = getAllUsers();
-        Optional<Person> foundUser = users.stream().filter(user -> user.getId().equals(userId)).findFirst();
-
-        if (foundUser.isEmpty()) {
-            throw new IllegalArgumentException();
-        }
-
-        return foundUser.get();
-    }
-
-    public List<Person> getAllUsers() throws IOException {
-        String GITHUB_URL = "https://raw.githubusercontent.com/tnav1999/tax-calculator/refs/heads/main/datastore/users.json";
-        String response = restTemplate.getForObject(GITHUB_URL, String.class);
-
-        return jsonUtils.parseFromJson(response);
-    }
+		return objectMapper.readValue(response, typeReference);
+	}
 }

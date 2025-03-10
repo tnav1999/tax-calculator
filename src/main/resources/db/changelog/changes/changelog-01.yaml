@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id : 1
+      author : tri
+      changes:
+        - createTable :
+            tableName : person
+            columns :
+                - column:
+                    name : id
+                    type : BIGINT
+                    constraints:
+                      nullable : false
+                      primaryKey : true
+                      primaryKeyName : personPK
+                - column:
+                    name : first_name
+                    type : VARCHAR(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: last_name
+                    type: VARCHAR(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: tax_code
+                    type: VARCHAR(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: income
+                    type: DOUBLE
+                    constraints:
+                      nullable: false
+
+
