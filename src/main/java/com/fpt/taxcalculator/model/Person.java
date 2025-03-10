@@ -1,14 +1,24 @@
 package com.fpt.taxcalculator.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "person")
 public class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "first_name", nullable = false, length = 128)
     private String firstName;
 
+    @Column(name = "last_name", nullable = false, length = 128)
     private String lastName;
 
+    @Column(name = "tax_code", nullable = false, unique = true, length = 50)
     private String taxCode;
 
+    @Column(name = "income", nullable = false)
     private double income;
 
     public Long getId() {
