@@ -13,5 +13,5 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	@Query(value = "SELECT pe FROM Person pe WHERE pe.id = :id")
 	Person getPersonById(@Param("id") Long id);
 
-	List<Person> findAllByOrderByIncomeDesc();
+	List<Person> findAllByOrderByIncome();
 }

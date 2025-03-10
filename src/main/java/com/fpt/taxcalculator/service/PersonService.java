@@ -27,6 +27,6 @@ public class PersonService {
     }
 
 	public List<Person> getAllPersonFromDB() {
-		return personRepository.findAllByOrderByIncomeDesc();
+		return personRepository.findAllByOrderByIncome();
 	}
 }
