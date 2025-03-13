@@ -10,8 +10,9 @@ import java.util.List;
 
 @Repository
 public interface PersonRepository extends JpaRepository<Person, Long> {
-
 	List<Person> findAllByOrderByIncome();
+
+	List<Person> findByFirstNameAndLastName(String firstName, String lastName);
 
 	@Query("SELECT per FROM Person per WHERE per.lastName = :lastName")
 	Person findPersonByLastname(@Param("lastName") String lastName);
